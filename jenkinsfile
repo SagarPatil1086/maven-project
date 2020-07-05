@@ -1,0 +1,21 @@
+pipeline
+{
+  agent any
+  stages
+  {
+    stage ('scm checkout')
+    {
+      steps
+          { git 'https://github.com/SagarPatil1086/PipelineProject.git' }
+    }
+    stage ('compile code')
+    {
+      steps
+          {
+            withMaven(jdk: 'localJdk', maven: 'localMVN') {
+              sh 'mvn compile'
+            }
+          }
+    } 
+  }
+}
