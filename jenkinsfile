@@ -17,5 +17,23 @@ pipeline
             }
           }
     } 
+    stage ('test code')
+    {
+      steps
+          {
+            withMaven(jdk: 'localJdk', maven: 'localMVN') {
+              sh 'mvn test'
+            }
+          }
+    } 
+    stage ('compile code')
+    {
+      steps
+          {
+            withMaven(jdk: 'localJdk', maven: 'localMVN') {
+              sh 'mvn package'
+            }
+          }
+    } 
   }
 }
