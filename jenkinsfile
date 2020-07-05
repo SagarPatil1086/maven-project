@@ -6,7 +6,7 @@ pipeline
     stage ('scm checkout')
     {
       steps
-          { git 'https://github.com/SagarPatil1086/PipelineProject.git' }
+          { git 'https://github.com/SagarPatil1086/maven-project.git' }
     }
     stage ('compile code')
     {
